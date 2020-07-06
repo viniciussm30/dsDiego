@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        /* 
+            Static - cada componente/elemento leva em consideração o posicionamento do anterior, ou seja, as dimensões dos elementos são levadas em consideração na hora de renderizar a página.
+        */
+        
+        div {
+            font-size: 60px;
+            padding: 30px;
+            border: solid 5px #222;
+            color: #fff;
+        }
+        
+        .static {
+            top: 100px;
+            left: 100px;
+            background-color: steelblue;
+            /* Tanto o left como top não fizeram diferença nenhuma. Porque a posição static faz com que essas duas variáveis não sejam consideradas. Ou seja, a div ficará com as disposições de acordo com a disposição dos outros elementos/componentes, não levando em consideraçao as propriedades left e top. */
+        }
+        
+        .fixed {
+            /* Essa vai levar em consideraçao o posicionamento que eu definir.Nesse caso bottom e rigth. Além disso, ela deixa o elemento fixo, ou seja, se tiver barra de olagem ele continua fixo na posição determinada. */
+            position: fixed;
+            bottom: 30px;
+            right: 0px;
+            background-color: tomato;
+        }
+        
+        .relative1 {
+            /* Este leva em consideração o elemento anterior prara posicionar. Neste caso , irá ficar a 5px da div/elemento static. */
+            position: relative;
+            left: 50px;
+            top: 5px;
+            background-color: seagreen;
+        }
+        
+        .absolute1 {
+            /* Ele se posiciona absoluto em cima (em ralação) da página, ou seja, ela como um todo. Caso existam outors elementos ele irá passar por cima, pois não os considera. */
+            position: absolute;
+            left: 350px;
+            top: 120px;
+            background-color: violet;
+        }
+        /* O absolut sera absoluto apenas no componente ao qual ele pertence. Ou seja, como ele irá dentro de uma outra div/elemento, tornará absoluto em relação a ela e não a página como um todo.Portanto, ele se posiciona de forma absoluta com relação ao elemeto pai (parent), ou seja, a div relative2. Assim, dependendo do posicionamento da tag pai e filho os componentes podem variar
+        */
+        
+        .relative2 {
+            position: relative;
+            left: 250px;
+            top: 2000px;
+            width: 200px;
+            height: 200px;
+            background-color: slategray;
+        }
+        
+        .absolute2 {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+        }
+        
+        .sticky {
+            /* Consigo determinar uma posição para que esse elemento pare e fique fio. Nesse caso, quando ele chegar em top 10px, irá passar a ficar fixo e mesmo com a barra de rolagem não sairá mais desta posição */
+            position: sticky;
+            background-color: #777;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="static">Static (Padrão)</div>
+    <div class="fixed">Fixed</div>
+    <div class="relative1">Relative</div>
+    <div class="absolute1">Absolute</div>
+
+    <div class="relative2">
+        <div class="absolute2"></div>
+    </div>
+
+    <div class="sticky"></div>
+    <p style="padding-bottom: 2000px;">Opa</p>
+
+</body>
+
+</html>

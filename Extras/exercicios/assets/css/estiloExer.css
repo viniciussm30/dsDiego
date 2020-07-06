@@ -1,0 +1,94 @@
+* {
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 130px 1fr 100px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'conteudo' 'footer';
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(60, 61, 65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.principal {
+    grid-area: conteudo;
+    height: calc(100vh - 230px);
+    background-color: #f0f0d0;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.albuns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.album {
+    flex-basis: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album>img {
+    margin: 0px;
+    padding: 0px;
+}
+
+.album>h4 {
+    margin: 0px;
+    padding: 5px 0px;
+}
+
+.album>ol {
+    margin: 0px;
+    padding: 5px;
+}
+
+.conteudo {
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.statick {
+    position: sticky;
+    top: 0px;
+    background-color: rgb(194, 198, 212);
+    text-align: center;
+}
+
+.botaoFixo {
+    position: fixed;
+    right: 40px;
+    bottom: 140px;
+    border-radius: 30px;
+}
+
+.comeco {
+    text-decoration: none;
+    color: gray;
+}
+
+.bio {
+    text-align: justify;
+}

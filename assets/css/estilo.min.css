@@ -1,0 +1,1 @@
+*{font-family:'Roboto Slab',serif;box-sizing:border-box}body{height:100vh;margin:0;display:grid;grid-template-rows:120px 1fr 60px;grid-template-columns:1fr;grid-template-areas:'cabecalho' 'principal' 'rodape'}.cabecalho{grid-area:cabecalho;background-color:teal}.principal{grid-area:principal}

@@ -1,0 +1,268 @@
+* {
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+    /* 
+        leva em consideração as medidas não apenas do conteúdo, mas também o padding e a borda, ou seja, a mergem estará fora da caixa estaeliccida pelo box-sizing.
+        OBS: a margem é mais utilizada para separa os elementos
+    */
+}
+
+body {
+    height: 100vh;
+    /* dividir o elemento em 100 partes e utilizar 100% delas */
+    margin: 0;
+    display: grid;
+    /* permite que os elementos sejão colocados e/ou organizados em linhas e colunas
+    
+    Vou dividir o conteudo desse grid em 3 partes, sendo estas linhas nele:
+    1ª linha será o cabeçalho;
+    2ª linha será o conteúdo.
+    3ª linha será o radapé;
+
+    Definições:
+    - O cabeçalho terá um tamnaho fixo em 120px;
+    - O conteúdo irá crescer de acordo com a necessidade, ou seja, de forma dinâmica;
+    - O radapé terá um tamanho fixo de 60px;
+    */
+    grid-template-rows: 120px 1fr 60px;
+    /* A unidade fr representa uma fraçãa/ fragmento do espaço disponível do container do grid 
+    A próxima definição de grid cria três espaços com tamanhos iguais que aumentam ou diminuem de acordo com o espaço disponível.
+    No caso do nosso codigo, tem-se unidades fixas para cabeçalhos e radapé, sendo assim, o 1RF significa que este fragmento irá ocupar o restante do bloco disponível.
+    Vale ressaltar que essas medidas são referentes a altura do bloco
+    */
+    grid-template-columns: 1fr;
+    /* Neste caso, todas as 3 partes do grid irão ocupar a largura completa do mesmo, ou seja, "ponta" a "ponta". Portanto ao definir 1 fragmento este irá ocupar 100% da largura. */
+    grid-template-areas: 'cabecalho' 'principal' 'rodape';
+    /* Aqui eu defino quem serão as 3 partes do grid */
+}
+
+.cabecalho {
+    grid-area: cabecalho;
+    /* Aqui eu indio qual área do grid vou utilizar */
+    background-color: teal;
+    color: white;
+    display: flex;
+    /* Coloca todos os elementos dentro da mesma linha por propriedade flex.
+    Essa propriedade Flex tem um Direction onde eu posso indicar onde o elemento irá se posicionar. 
+    Em flex direction tenho algumas orientações de direção, como por exemplo: colums, row, row-reverse, column-reverse, entre outras.
+    Essas direções são alinhadas em eixo principal e secundário. Por padrão o eixo principal é a linha, mas quando você altera o flex direction, então passa a ser a coluna. 
+    Este eixo secundário quando cruza o eixo prncipal dá-se o nome de Cross Axis e o principal dá-se o nome de Main Axis.
+    */
+    flex-direction: column;
+    /* A propriedade justify-content aplica o alinhamento em cima do eixo principal, não importando se ele é a linha ou coluna. 
+    O valor flex-end dessa propriedade alinha no final do eixo principal.
+    Significa que neste caso ela irá pegar os valores dos meus H1 e H2 no html e colocá-los no final, isso porque estou dizendo para alinhar o eixo principal (coluna) no final usando flex-end. Portanto, se mudarmos para row (Linha), também irá, porém, no final da linha.
+    Existem outras formas de alinhar os elementos, como por exemplo: flex-start que alinha os elementos no inicio;
+    flex-end que alinha os elementos no final; 
+    center alinha no centro; 
+    space-between alinha um espaço entre os elementos, que nesse caso são H1 e H2, sem deixar espaço em cima e embaixo deles, apenas entre eles;
+    space-around: vai deixar espaços em cima, embaixo e entre os elementos. 
+    Portanto, o justify-content serve para alinhar elementos main axis.
+    */
+    justify-content: center;
+    /* Após alinhar o main axis agora iremos alinhar no cross axis, para isso, tem-se a propriedade align-items.
+    Os valore para esta propriedade são os mesmo do justify-content
+    */
+    align-items: center;
+    padding-bottom: 10px;
+    z-index: 1;
+    /* Utilizo o eixo Z para ficar mais visivel o sombreamento do box shadow, tornando-o acima dos outros elementos */
+    box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.75);
+    /* sombreamento do box de um elemento */
+}
+
+
+/* Aqui eu vou estilizar h1 que está dentro do cabeçalho */
+
+.cabecalho>h1 {
+    margin: 0px;
+    font-weight: 100;
+    font-size: 2.8rem;
+}
+
+.cabecalho>h2 {
+    margin: 0;
+    font-weight: 50;
+    font-size: 1.6rem;
+}
+
+.principal {
+    grid-area: principal;
+    height: calc(100vh - 180px);
+    /* Aqui definimos a altura em vh - 180px.
+    Estes 180 siginifica a soma das áreas do cabeçalho e rodapé. Portanto, isso siginifica que iremos ocupar 100% da área disponível menos/descontando o radapé e cabeçalho.
+    A propriedade cal permite fazer esse cálculo dando precisão a regra.
+    */
+    background-color: #f0f0f0;
+    /* #f0f0f0 */
+    padding: 20px;
+    /* Serve para dar um espaço que separa os conteúdos em 20px */
+}
+
+.conteudo {
+    position: relative;
+    height: 100%;
+    overflow-y: scroll;
+    /* 
+        Ele verifica se os elementos/conteúdos extrapolarem a área/tamanho definido, adiciona uma barra de navegação scroll. Ou seja, terá uma barra apenas na área do conteúdo e não na página inteira.
+    */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+.rodape {
+    grid-area: rodape;
+    background-color: #fff;
+    /* Se o tamanho do conteúdo crescer e você quiser manter o radapé parado. Você pode utilizar:
+    position: sticky;
+    bottom: 0px;
+    Associamos posição sticky ao percentual 0 fazendo com que ele fique grudado, ou seja, o rodapé estará sempre visível.
+    */
+    /* #fff; */
+    display: flex;
+    justify-content: flex-end;
+    /* alinhando no main axis, mais precisamente no final da lnha/eixo. */
+    align-items: center;
+    /* alinhando no cross axis. Centralizando */
+    font-size: 1rem;
+    padding: 0px 20px;
+    /* 0px eixo vertical. 20px para o horizontal. Se quiser pode trocar o padding por padding-right 20px; estará realizando a mesma função */
+    color: #444;
+}
+
+.modulos {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-wrap: wrap quebra de linha dentro do display flex */
+    justify-content: space-around;
+    /* Deixa espaço do lado direito, esquerdo e entre os elemnetos. */
+}
+
+.modulo {
+    flex-basis: 33%;
+    /* Define a largura dentor do flex box, ou seja, define o tamanho de cada elemento dentro do flex box */
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.modulo>h3 {
+    margin: 0px;
+    color: #fff;
+    font-weight: 100;
+    size: 1.2rem;
+    padding: 10px 20px;
+    background-color: teal;
+}
+
+.modulo>ul {
+    margin: 0px;
+    padding: 10px;
+    list-style: none;
+    /* remove os maracadores da lista */
+}
+
+.modulo>ul>li {
+    padding: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    /* Toda vez que passar o mouse sobre um item o mouse muda para pointer */
+}
+
+.modulo>ul>li>a {
+    display: flex;
+    text-decoration: none;
+    /* remove o sublinhado dos links */
+    color: #222;
+}
+
+.modulo>ul>li:hover {
+    background-color: #EEE;
+}
+
+
+/* Cor dos módulos */
+
+.modulo.verde {
+    border: 2px solid #4CAF50;
+}
+
+.modulo.verde>h3 {
+    background-color: #4CAF50;
+}
+
+.modulo.vermelho {
+    border: 2px solid #f44336;
+}
+
+.modulo.vermelho>h3 {
+    background-color: #f44336;
+}
+
+.modulo.azul {
+    border: 2px solid #2196F3;
+}
+
+.modulo.azul>h3 {
+    background-color: #2196F3;
+}
+
+.modulo.roxo {
+    border: 2px solid #9C27B0;
+}
+
+.modulo.roxo>h3 {
+    background-color: #9C27B0;
+}
+
+.modulo.laranja {
+    border: 2px solid #FF9800;
+}
+
+.modulo.laranja>h3 {
+    background-color: #FF9800;
+}
+
+.modulo.verde-escuro {
+    border: 2px solid #1B5E20;
+}
+
+.modulo.verde-escuro>h3 {
+    background-color: #1B5E20;
+}
+
+.modulo.vermelho-escuro {
+    border: 2px solid #B71C1C;
+}
+
+.modulo.vermelho-escuro>h3 {
+    background-color: #B71C1C;
+}
+
+.modulo.azul-escuro {
+    border: 2px solid #0D47A1;
+}
+
+.modulo.azul-escuro>h3 {
+    background-color: #0D47A1;
+}
+
+.modulo.roxo-escuro {
+    border: 2px solid #4A148C;
+}
+
+.modulo.roxo-escuro>h3 {
+    background-color: #4A148C;
+}
+
+
+/* Fim da cor dos módulos*/
+
+p.divisao {
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+hr {
+    margin-top: 0px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OverFlow</title>
+
+    <style>
+        div {
+            font-size: 40px;
+            height: 100px;
+            width: 260px;
+            border: solid 3px;
+            /* 
+                Estratégias:
+                hidden - tudo aquilo que extrapolar o limite será escondido e assim não vai mais aparecer;
+                scroll - gera barra de rolagem tanto para o eixo X (horizontal) quanto pkara o eixo Y (vertical);
+                overflow-x: scroll - barra de rolagem apenas no eixo X
+                overflow-y: scroll - barra de rolagem apenas no eixo y
+                Posso combinar overflow-x e y com hidden escondendo parte do conteúdo de acordo com o eixo definido.
+                Assim como o idden temos o visible (visível)
+            */
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis soluta esse provident, saepe 555reiciendis ratione maiores est et accusamus at iure explicabo ad ipsum rerum facilis quos maxime assumenda atque.
+    </div>
+
+</body>
+
+</html>
