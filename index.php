@@ -103,11 +103,11 @@
                     </ul>
                 </div>
                 <div class="modulo vermelho-escuro">
-                    <h3>Módulo 07</h3>
+                    <h3>Módulo 07 - Funções</h3>
                     <ul>
-                        <li><a href="#">Exercício A</a></li>
-                        <li><a href="#">Exercício B</a></li>
-                        <li><a href="#">Exercício C</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=escopo">Função & Escopo</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=args_retorno">Argumentos & Retorno</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=palindromo">Desafio Palindromo</a></li>
                     </ul>
                 </div>
                 <div class="modulo azul-escuro">
