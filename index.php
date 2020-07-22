@@ -110,6 +110,9 @@
                         <li><a href="exercicio.php?dir=funcoes&file=palindromo">Desafio Palindromo</a></li>
                         <li><a href="exercicio.php?dir=funcoes&file=arg__padrao">Argumento Padrão</a></li>
                         <li><a href="exercicio.php?dir=funcoes&file=arg_variaveis">Argumento Variáveis</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=usando_tipos">Usando Tipos</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=anonimas">Funções Anônimas</a></li>
+                        <li><a href="exercicio.php?dir=funcoes&file=closoure_callable">Closoure  &Callable</a></li>
                     </ul>
                 </div>
                 <div class="modulo azul-escuro">
